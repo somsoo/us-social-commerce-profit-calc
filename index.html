@@ -1,28 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dropshipping &amp; TikTok Shop Profit Calculator - Under maintenance</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="site-status" content="maintenance">
-<meta name="description" content="This tool is temporarily offline while it is rebuilt.">
+<title>Social Commerce Profit Calculator</title>
+<meta name="description" content="Calculate TikTok Shop, Instagram &amp; dropship seller net profit after all fees.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://us-social-commerce-profit-calc.enjoy-onepage.com/">
+<meta name="theme-color" content="#db2777">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Social Commerce Profit Calculator">
+<meta property="og:title" content="Social Commerce Profit Calculator">
+<meta property="og:description" content="Calculate TikTok Shop, Instagram &amp; dropship seller net profit after all fees.">
+<meta property="og:url" content="https://us-social-commerce-profit-calc.enjoy-onepage.com/">
+<meta property="og:image" content="https://us-social-commerce-profit-calc.enjoy-onepage.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Social Commerce Profit Calculator">
+<meta name="twitter:description" content="Calculate TikTok Shop, Instagram &amp; dropship seller net profit after all fees.">
+<meta name="twitter:image" content="https://us-social-commerce-profit-calc.enjoy-onepage.com/og-image.png">
+<link rel="alternate" type="application/rss+xml" title="Social Commerce Calculator RSS" href="https://us-social-commerce-profit-calc.enjoy-onepage.com/rss.xml">
+<link rel="sitemap" type="application/xml" href="https://us-social-commerce-profit-calc.enjoy-onepage.com/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://us-social-commerce-profit-calc.enjoy-onepage.com/#webapp",
+      "name": "Social Commerce Profit Calculator",
+      "url": "https://us-social-commerce-profit-calc.enjoy-onepage.com/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "inLanguage": "en",
+      "description": "A net margin and fee calculator for TikTok Shop, Instagram storefronts, and e-commerce dropshippers calculating commissions, ad spend, and net profits.",
+      "image": "https://us-social-commerce-profit-calc.enjoy-onepage.com/og-image.png",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://us-social-commerce-profit-calc.enjoy-onepage.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What fees does TikTok Shop charge sellers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TikTok Shop currently charges a referral fee (typically 6% plus $0.30 per order) plus creator affiliate commissions ranging from 10% to 20% on affiliated video sales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do customer returns affect dropshipping profit margins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customer returns and chargebacks typically cost sellers both the forward shipping fee and payment processing fees, requiring a 3% to 5% reserve allowance in your unit pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is break-even ROAS or CPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Break-even CPA (Cost Per Acquisition) is the maximum advertising dollar amount you can spend per order before operating at a net loss (Gross Margin per unit minus platform fees)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my e-commerce sales and margin data kept confidential?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All product pricing, wholesale sourcing costs, and profit calculations are evaluated strictly on your local browser device and are never sent to external servers."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ADSENSE START: loader -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+<!-- ADSENSE END: loader -->
 <style>
-  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; }
-  main { max-width: 560px; margin: 12vh auto; padding: 32px 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; }
-  h1 { font-size: 1.4rem; margin: 0 0 12px; }
-  p { line-height: 1.6; color: #334155; }
-  a { color: #1d4ed8; font-weight: 600; }
-  .tag { display: inline-block; font-size: .8rem; font-weight: 700; color: #92400e; background: #fef3c7; border-radius: 999px; padding: 4px 10px; margin-bottom: 14px; }
+:root{--bg:#fdf2f8;--card:#fff;--ink:#0f172a;--muted:#475569;--accent:#db2777;--accent-hover:#be185d;--line:#fce7f3;--ok:#16a34a;--warn:#d97706;--danger:#dc2626}
+*{box-sizing:border-box}
+html,body{margin:0;max-width:100%;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-wrap:anywhere}
+.header{background:linear-gradient(135deg,#9d174d,#db2777);color:#fff;text-align:center;padding:26px 16px 22px}
+.header h1{margin:0;font-size:1.7rem}
+.header-sub{opacity:.92;margin-top:6px;font-size:.95rem}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 14px 8px}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:1024px){.grid2{grid-template-columns:7fr 5fr;align-items:start}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.card h2{margin:0 0 10px;font-size:1.15rem;color:var(--ink)}
+.lbl{display:block;font-size:.84rem;font-weight:600;color:var(--muted);margin-bottom:4px}
+.input{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font-size:.92rem;background:#fff;color:var(--ink)}
+.input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:640px){.form-grid{grid-template-columns:repeat(2,1fr)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:9px 14px;border-radius:8px;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid transparent;transition:background-color .15s}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-hover)}
+.btn.sm{padding:6px 10px;font-size:.8rem;background:#fff;border-color:#cbd5e1;color:var(--ink)}
+.btn.sm:hover{background:#f8fafc}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px}
+.metric-box{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;text-align:center}
+.metric-lbl{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.02em}
+.metric-val{font-size:1.25rem;font-weight:700;color:var(--ink);margin:4px 0}
+.hero-profit-box{background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:2px solid var(--accent);border-radius:10px;padding:16px;text-align:center;margin-bottom:14px}
+.hero-profit-val{font-size:2.2rem;font-weight:900;color:var(--accent);margin:6px 0}
+.table-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.table-row:last-child{border-bottom:none}
+.ad-box{width:100%;max-width:960px;margin:16px auto;text-align:center;overflow:hidden;min-height:100px}
+.ad-box.ad-top{min-height:90px}
+.ad-box.ad-mid{min-height:250px}
+.ad-box.ad-bottom{min-height:280px;margin:24px auto 16px}
+.ad-box ins{display:block;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line);padding:10px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-item h3{margin:0 0 4px;font-size:.95rem;color:var(--ink)}
+.faq-item p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.5}
+.notice{background:#eff6ff;border-color:#bfdbfe;font-size:.86rem;color:#1e40af}
+.src{font-size:.78rem;color:var(--muted);margin-top:10px;font-style:italic}
+.footer{text-align:center;padding:22px 14px 28px;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);margin-top:20px}
+.footer a{color:var(--accent);text-decoration:none;margin:0 6px}
+.footer a:hover{text-decoration:underline}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;padding:8px 16px;border-radius:8px;font-size:.85rem;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;pointer-events:none;transition:opacity .2s;z-index:9999}
+.toast.show{opacity:1}
 </style>
 </head>
 <body>
-<main>
-  <span class="tag">Under maintenance</span>
-  <h1>Dropshipping &amp; TikTok Shop Profit Calculator</h1>
-  <p>This tool is temporarily offline. We found that the previous version did not work the way it was described, so we took it down while we rebuild it properly.</p>
-  <p>Please check back later.</p>
-  <p><a href="https://enjoy-onepage.com/">Browse our other free tools</a></p>
+
+<header class="header">
+  <h1>Social Commerce Profit Calculator</h1>
+  <div class="header-sub">TikTok Shop, Instagram &amp; Dropshipping Net Margin Model</div>
+</header>
+
+<main class="wrap">
+  <!-- ADSENSE START: top -->
+  <div class="ad-box ad-top">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3824727725" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: top -->
+
+  <div class="grid2">
+    <!-- Channel Presets & Order Unit Economics -->
+    <section class="card" aria-labelledby="inputs-h">
+      <h2 id="inputs-h">🛍️ Platform Channel &amp; Pricing</h2>
+
+      <div class="form-grid">
+        <div>
+          <label for="platformPreset" class="lbl">Channel Preset</label>
+          <select id="platformPreset" class="input">
+            <option value="tiktok" selected>TikTok Shop (6% fee + $0.30)</option>
+            <option value="instagram">Instagram / Meta Shop (2.9% + $0.30)</option>
+            <option value="shopify">Shopify Direct (2.9% + $0.30)</option>
+            <option value="amazon">Amazon FBA / Multi (15% referral)</option>
+            <option value="custom">Custom Channel</option>
+          </select>
+        </div>
+        <div>
+          <label for="retailPrice" class="lbl">Customer Retail Sale Price ($)</label>
+          <input type="number" id="retailPrice" class="input" value="38" min="0.01" step="0.5">
+          <div class="src" style="margin:2px 0 0">Gross price customer pays</div>
+        </div>
+      </div>
+
+      <h2 style="font-size:1.15rem;margin:18px 0 10px">📦 Fulfillment &amp; Supplier COGS</h2>
+      <div class="form-grid">
+        <div>
+          <label for="supplierCost" class="lbl">Supplier Item Cost ($)</label>
+          <input type="number" id="supplierCost" class="input" value="9.50" min="0" step="0.25">
+          <div class="src" style="margin:2px 0 0">Factory / CJ / AliExpress unit cost</div>
+        </div>
+        <div>
+          <label for="shippingCost" class="lbl">Shipping &amp; Packaging Cost ($)</label>
+          <input type="number" id="shippingCost" class="input" value="4.80" min="0" step="0.25">
+          <div class="src" style="margin:2px 0 0">Postal label &amp; mailer package</div>
+        </div>
+      </div>
+
+      <h2 style="font-size:1.15rem;margin:18px 0 10px">📣 Creator Affiliate &amp; Ad Spend</h2>
+      <div class="form-grid">
+        <div>
+          <label for="affiliateCommissionPct" class="lbl">Creator Affiliate Commission (%)</label>
+          <input type="number" id="affiliateCommissionPct" class="input" value="15" min="0" max="50" step="1">
+          <div class="src" style="margin:2px 0 0">TikTok creator open collaboration %</div>
+        </div>
+        <div>
+          <label for="adCpaSpend" class="lbl">Paid Ad Spend per Order / CPA ($)</label>
+          <input type="number" id="adCpaSpend" class="input" value="7.50" min="0" step="0.5">
+          <div class="src" style="margin:2px 0 0">Meta/TikTok Spark ad cost per sale</div>
+        </div>
+      </div>
+
+      <h2 style="font-size:1.15rem;margin:18px 0 10px">📈 Monthly Sales Projection</h2>
+      <div>
+        <label for="monthlyOrders" class="lbl">Target Monthly Order Volume</label>
+        <input type="number" id="monthlyOrders" class="input" value="450" min="0" step="25">
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <button type="button" id="btnExportCsv" class="btn sm">⬇ Export CSV</button>
+        <button type="button" id="btnExportJson" class="btn sm">⬇ Export Backup</button>
+        <button type="button" id="btnResetStandard" class="btn sm">Reset to TikTok Viral Case</button>
+      </div>
+    </section>
+
+    <!-- Net Profit & Break-Even Results -->
+    <section class="card" aria-labelledby="results-h">
+      <h2 id="results-h">🎯 Realized Net Profit per Order</h2>
+
+      <div class="hero-profit-box">
+        <div class="metric-lbl" style="color:var(--muted)">Net Profit per Order</div>
+        <div id="resNetPerOrder" class="hero-profit-val">+$7.92</div>
+        <div id="resNetMarginPct" style="font-size:.85rem;color:var(--muted)">20.8% net margin</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-box">
+          <div class="metric-lbl">Monthly Net Profit</div>
+          <div id="resMonthlyNet" class="metric-val" style="color:var(--ok)">$3,564</div>
+          <div class="src" style="margin:0">At 450 orders / month</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-lbl">Break-Even Ad CPA</div>
+          <div id="resMaxCpa" class="metric-val" style="color:var(--accent)">$15.42</div>
+          <div class="src" style="margin:0">Maximum allowable ad cost</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:.95rem;margin:16px 0 8px">📋 Order Cost &amp; Fee Breakdown</h3>
+      <div class="table-row">
+        <span><strong>Retail Selling Price:</strong></span>
+        <span id="resPriceRow" style="font-weight:700;color:var(--ink)">$38.00</span>
+      </div>
+      <div class="table-row">
+        <span>Supplier Product Cost:</span>
+        <span id="resSupplierRow" style="color:var(--danger)">-$9.50</span>
+      </div>
+      <div class="table-row">
+        <span>Shipping &amp; Packaging:</span>
+        <span id="resShippingRow" style="color:var(--danger)">-$4.80</span>
+      </div>
+      <div class="table-row">
+        <span>Platform Channel Fee (<span id="resPlatFeeLabel">6% + $0.30</span>):</span>
+        <span id="resPlatFeeRow" style="color:var(--danger)">-$2.58</span>
+      </div>
+      <div class="table-row">
+        <span>Creator Affiliate Commission (<span id="resAffPctLabel">15%</span>):</span>
+        <span id="resAffFeeRow" style="color:var(--danger)">-$5.70</span>
+      </div>
+      <div class="table-row">
+        <span>Direct Ad CPA:</span>
+        <span id="resCpaRow" style="color:var(--danger)">-$7.50</span>
+      </div>
+      <div class="table-row" style="background:#fdf2f8;padding:8px;border-radius:6px;margin-top:4px">
+        <span><strong>Net In-Pocket Profit:</strong></span>
+        <span id="resTotalNetRow" style="font-weight:800;font-size:1.05rem;color:var(--ok)">+$7.92 / order</span>
+      </div>
+
+      <div style="margin-top:16px">
+        <button type="button" id="btnShareCalc" class="btn sm" style="width:100%">🔗 Share Social Commerce Model</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ADSENSE START: mid -->
+  <div class="ad-box ad-mid">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="1186914926" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: mid -->
+
+  <!-- Educational Guide -->
+  <section class="card" aria-labelledby="guide-h">
+    <h2 id="guide-h">📖 Navigating Social Commerce &amp; TikTok Shop Economics</h2>
+    <p>Social commerce channels provide explosive viral reach, but seller margins can evaporate quickly without strict accounting of layered transaction fees:</p>
+    <ul>
+      <li><strong>The Layered Commission Stack:</strong> On platforms like TikTok Shop, sellers incur multiple concurrent deductions: the platform referral fee (6% + $0.30), creator affiliate commissions (typically 10% to 20%), plus shipping subsidies. On a $30 item, commissions can easily exceed $8 per sale.</li>
+      <li><strong>Break-Even CPA Threshold:</strong> If your product has a 50% gross margin on a $40 price ($20 profit before ads), and platform + affiliate fees total $7, your maximum allowable Cost Per Acquisition (CPA) is $13. Any Facebook or TikTok ad CPA above $13 generates an immediate cashflow loss.</li>
+      <li><strong>Shipping Weight &amp; Volumetric Shocks:</strong> Sourcing items with lightweight, compact form factors is paramount. Heavy or oversized dropship items incur steep dimensional carrier surcharges that erase net margins.</li>
+    </ul>
+    <p class="src">References: TikTok Shop Academy Seller Fee Guidelines; Shopify Dropshipping Benchmarks &amp; Margin Report.</p>
+  </section>
+
+  <section class="card" id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">❓ Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What fees does TikTok Shop charge sellers?</h3><p>TikTok Shop currently charges a referral fee (typically 6% plus $0.30 per order) plus creator affiliate commissions ranging from 10% to 20% on affiliated video sales.</p></div>
+    <div class="faq-item"><h3>How do customer returns affect dropshipping profit margins?</h3><p>Customer returns and chargebacks typically cost sellers both the forward shipping fee and payment processing fees, requiring a 3% to 5% reserve allowance in your unit pricing.</p></div>
+    <div class="faq-item"><h3>What is break-even ROAS or CPA?</h3><p>Break-even CPA (Cost Per Acquisition) is the maximum advertising dollar amount you can spend per order before operating at a net loss (Gross Margin per unit minus platform fees).</p></div>
+    <div class="faq-item"><h3>Is my e-commerce sales and margin data kept confidential?</h3><p>Yes. All product pricing, wholesale sourcing costs, and profit calculations are evaluated strictly on your local browser device and are never sent to external servers.</p></div>
+  </section>
+
+  <section class="card notice" aria-labelledby="note-h">
+    <h2 id="note-h">⚠️ Commercial Advisory Notice</h2>
+    <p>This profit calculator provides financial modeling for e-commerce operators. It does not constitute official platform billing audits or certified tax accounting.</p>
+  </section>
 </main>
+
+<!-- ADSENSE START: bottom -->
+<div class="ad-box ad-bottom">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3416334507" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<!-- ADSENSE END: bottom -->
+
+<footer class="footer">
+  <p>Free Social Commerce Profit Calculator · 100% private and client-side.</p>
+  <p><a href="/disclaimer.html">Disclaimer</a> | <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+</footer>
+
+<div id="global-ux-toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- LOGIC START -->
+<script>
+(function () {
+  'use strict';
+  var STORAGE_KEY = 'us_social_commerce_state';
+
+  var PLATFORM_PRESETS = {
+    tiktok: { name: 'TikTok Shop', pct: 6, fixed: 0.30 },
+    instagram: { name: 'Instagram / Meta', pct: 2.9, fixed: 0.30 },
+    shopify: { name: 'Shopify Direct', pct: 2.9, fixed: 0.30 },
+    amazon: { name: 'Amazon FBA / Multi', pct: 15, fixed: 0.0 },
+    custom: { name: 'Custom Channel', pct: 5, fixed: 0.30 }
+  };
+
+  var state = {
+    platform: 'tiktok',
+    price: 38,
+    supplier: 9.50,
+    shipping: 4.80,
+    affiliatePct: 15,
+    adCpa: 7.50,
+    orders: 450
+  };
+
+  function $(id) { return document.getElementById(id); }
+
+  function showToast(msg) {
+    var toast = $('global-ux-toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._tid);
+    toast._tid = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+  }
+
+  function loadState() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        var parsed = JSON.parse(saved);
+        if (parsed && typeof parsed.price === 'number') {
+          state = Object.assign(state, parsed);
+        }
+      }
+    } catch (e) {}
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {}
+  }
+
+  function calculate() {
+    var pConfig = PLATFORM_PRESETS[state.platform] || PLATFORM_PRESETS.tiktok;
+    var price = Math.max(0.01, state.price);
+
+    var platformFee = (price * (pConfig.pct / 100)) + pConfig.fixed;
+    var affiliateFee = price * (state.affiliatePct / 100);
+
+    var totalDeductions = state.supplier + state.shipping + platformFee + affiliateFee + state.adCpa;
+    var netPerOrder = price - totalDeductions;
+    var netMarginPct = (netPerOrder / price) * 100;
+
+    // Max CPA without losing money (price - supplier - shipping - platformFee - affiliateFee)
+    var maxCpa = Math.max(0, price - (state.supplier + state.shipping + platformFee + affiliateFee));
+    var monthlyNet = netPerOrder * state.orders;
+
+    // Update DOM
+    $('resNetPerOrder').textContent = (netPerOrder >= 0 ? '+$' : '-$') + Math.abs(netPerOrder).toFixed(2);
+    $('resNetPerOrder').style.color = netPerOrder >= 0 ? 'var(--accent)' : 'var(--danger)';
+
+    $('resNetMarginPct').textContent = (netMarginPct >= 0 ? '+' : '') + netMarginPct.toFixed(1) + '% net margin';
+    $('resMonthlyNet').textContent = (monthlyNet >= 0 ? '+$' : '-$') + Math.abs(Math.round(monthlyNet)).toLocaleString();
+    $('resMonthlyNet').style.color = monthlyNet >= 0 ? 'var(--ok)' : 'var(--danger)';
+
+    $('resMaxCpa').textContent = '$' + maxCpa.toFixed(2);
+
+    $('resPriceRow').textContent = '$' + price.toFixed(2);
+    $('resSupplierRow').textContent = '-$' + state.supplier.toFixed(2);
+    $('resShippingRow').textContent = '-$' + state.shipping.toFixed(2);
+
+    $('resPlatFeeLabel').textContent = pConfig.pct + '%' + (pConfig.fixed > 0 ? ' + $' + pConfig.fixed.toFixed(2) : '');
+    $('resPlatFeeRow').textContent = '-$' + platformFee.toFixed(2);
+
+    $('resAffPctLabel').textContent = state.affiliatePct + '%';
+    $('resAffFeeRow').textContent = '-$' + affiliateFee.toFixed(2);
+    $('resCpaRow').textContent = '-$' + state.adCpa.toFixed(2);
+
+    var netRow = $('resTotalNetRow');
+    netRow.textContent = (netPerOrder >= 0 ? '+$' : '-$') + Math.abs(netPerOrder).toFixed(2) + ' / order';
+    netRow.style.color = netPerOrder >= 0 ? 'var(--ok)' : 'var(--danger)';
+
+    saveState();
+  }
+
+  function bindInputs() {
+    $('platformPreset').value = state.platform;
+    $('platformPreset').addEventListener('change', function (e) {
+      state.platform = e.target.value;
+      calculate();
+    });
+
+    var fields = [
+      { id: 'retailPrice', key: 'price' },
+      { id: 'supplierCost', key: 'supplier' },
+      { id: 'shippingCost', key: 'shipping' },
+      { id: 'affiliateCommissionPct', key: 'affiliatePct' },
+      { id: 'adCpaSpend', key: 'adCpa' },
+      { id: 'monthlyOrders', key: 'orders' }
+    ];
+
+    fields.forEach(function (f) {
+      var el = $(f.id);
+      if (!el) return;
+      el.value = state[f.key];
+      el.addEventListener('input', function (e) {
+        var v = parseFloat(e.target.value);
+        state[f.key] = isNaN(v) || v < 0 ? 0 : v;
+        calculate();
+      });
+    });
+  }
+
+  $('btnExportCsv').addEventListener('click', function () {
+    var pConfig = PLATFORM_PRESETS[state.platform] || PLATFORM_PRESETS.tiktok;
+    var platformFee = (state.price * (pConfig.pct / 100)) + pConfig.fixed;
+    var affiliateFee = state.price * (state.affiliatePct / 100);
+    var netPerOrder = state.price - (state.supplier + state.shipping + platformFee + affiliateFee + state.adCpa);
+
+    var csv = 'Metric,Value\r\n';
+    csv += 'Platform,' + pConfig.name + '\r\n';
+    csv += 'Retail Selling Price,' + state.price + '\r\n';
+    csv += 'Supplier Item Cost,' + state.supplier + '\r\n';
+    csv += 'Shipping and Packing,' + state.shipping + '\r\n';
+    csv += 'Platform Fee,' + platformFee.toFixed(2) + '\r\n';
+    csv += 'Creator Affiliate Commission,' + affiliateFee.toFixed(2) + '\r\n';
+    csv += 'Paid Ad CPA,' + state.adCpa + '\r\n';
+    csv += 'Net Profit Per Order,' + netPerOrder.toFixed(2) + '\r\n';
+    csv += 'Monthly Orders,' + state.orders + '\r\n';
+    csv += 'Monthly Net Profit,' + (netPerOrder * state.orders).toFixed(2) + '\r\n';
+
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'social_commerce_plan_' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Exported CSV!');
+  });
+
+  $('btnExportJson').addEventListener('click', function () {
+    var blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'social_commerce_backup_' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Exported JSON backup!');
+  });
+
+  $('btnResetStandard').addEventListener('click', function () {
+    if (confirm('Reset to the standard TikTok Shop viral product case ($38 price, $9.50 supplier, $7.50 CPA)?')) {
+      state = {
+        platform: 'tiktok',
+        price: 38,
+        supplier: 9.50,
+        shipping: 4.80,
+        affiliatePct: 15,
+        adCpa: 7.50,
+        orders: 450
+      };
+      bindInputs();
+      calculate();
+      showToast('Reset to TikTok Shop case');
+    }
+  });
+
+  $('btnShareCalc').addEventListener('click', function () {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText('https://us-social-commerce-profit-calc.enjoy-onepage.com/').then(function () {
+        showToast('Link copied to clipboard!');
+      });
+    } else {
+      showToast('Share: https://us-social-commerce-profit-calc.enjoy-onepage.com/');
+    }
+  });
+
+  loadState();
+  bindInputs();
+  calculate();
+})();
+</script>
+<!-- LOGIC END -->
+
 </body>
 </html>
