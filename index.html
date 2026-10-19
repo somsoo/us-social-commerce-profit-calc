@@ -145,6 +145,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
   };
 })();
 </script>
+<style id="global-quality-shield">
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .ad-bottom, .ad-bottom ins {
+    min-height: 280px !important;
+    background: transparent !important;
+  }
+  :focus-visible {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 2px !important;
+  }
+</style>
 </head>
 <body>
 
@@ -179,7 +195,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
         </div>
         <div>
           <label for="retailPrice" class="lbl">Customer Retail Sale Price ($)</label>
-          <input type="number" id="retailPrice" class="input" value="38" min="0.01" step="0.5">
+          <input type="number" id="retailPrice" class="input" value="38" min="0.01" step="0.5" inputmode="numeric">
           <div class="src" style="margin:2px 0 0">Gross price customer pays</div>
         </div>
       </div>
@@ -188,12 +204,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
       <div class="form-grid">
         <div>
           <label for="supplierCost" class="lbl">Supplier Item Cost ($)</label>
-          <input type="number" id="supplierCost" class="input" value="9.50" min="0" step="0.25">
+          <input type="number" id="supplierCost" class="input" value="9.50" min="0" step="0.25" inputmode="numeric">
           <div class="src" style="margin:2px 0 0">Factory / CJ / AliExpress unit cost</div>
         </div>
         <div>
           <label for="shippingCost" class="lbl">Shipping &amp; Packaging Cost ($)</label>
-          <input type="number" id="shippingCost" class="input" value="4.80" min="0" step="0.25">
+          <input type="number" id="shippingCost" class="input" value="4.80" min="0" step="0.25" inputmode="numeric">
           <div class="src" style="margin:2px 0 0">Postal label &amp; mailer package</div>
         </div>
       </div>
@@ -202,12 +218,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
       <div class="form-grid">
         <div>
           <label for="affiliateCommissionPct" class="lbl">Creator Affiliate Commission (%)</label>
-          <input type="number" id="affiliateCommissionPct" class="input" value="15" min="0" max="50" step="1">
+          <input type="number" id="affiliateCommissionPct" class="input" value="15" min="0" max="50" step="1" inputmode="numeric">
           <div class="src" style="margin:2px 0 0">TikTok creator open collaboration %</div>
         </div>
         <div>
           <label for="adCpaSpend" class="lbl">Paid Ad Spend per Order / CPA ($)</label>
-          <input type="number" id="adCpaSpend" class="input" value="7.50" min="0" step="0.5">
+          <input type="number" id="adCpaSpend" class="input" value="7.50" min="0" step="0.5" inputmode="numeric">
           <div class="src" style="margin:2px 0 0">Meta/TikTok Spark ad cost per sale</div>
         </div>
       </div>
@@ -215,7 +231,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
       <h2 style="font-size:1.15rem;margin:18px 0 10px">📈 Monthly Sales Projection</h2>
       <div>
         <label for="monthlyOrders" class="lbl">Target Monthly Order Volume</label>
-        <input type="number" id="monthlyOrders" class="input" value="450" min="0" step="25">
+        <input type="number" id="monthlyOrders" class="input" value="450" min="0" step="25" inputmode="numeric">
       </div>
 
       <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
